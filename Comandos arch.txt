@@ -1,0 +1,73 @@
+Cargar la distribucion del teclado
+loadkeys la-latin1
+
+Conectarse a los repositorios
+pacman -Sy
+
+#Mostrar discos duros instalados
+#fdisk -l
+
+
+#Nota crear una particion primaria si no existe un sistema instalado, si ya esta instalado windows no es necesario crear una particion primaria, se puede crear una secundaria directamente (es decir se puede crear una particion extendida)
+#Particionar disco / no olvidar crear el atributo de booteable a una particion 
+Cfdisk
+
+#Hacer funcional la particion swap cambiar la ruta por la particion que es swap listar con fdisk -l
+mkswap /dev/sda7
+swapon
+
+#formatear particiones restantes para root y home
+mkfs.ext4 /dev/sda5
+mkfs.ext4 /dev/sda6
+
+#Montar particiones (se monta la particion root provicionalmente)
+mount /dev/sda1 /mnt
+
+
+#Montar particiones (se monta la particion home)
+mkdir /mnt/home
+
+mount /dev/sda5 /mnt/home
+
+#instalar paquetes linux y el sistema como tal
+pacstrap /mnt base grub linux linux-firware nano networkmanager dhcpcd netctl wpa_supplicant wireless_tools iwd iw zsh
+
+#preparando el inicio
+genfstab /mnt >> /mnt/etc/fstab
+
+#ingresamos al sistema instalado
+arch-chroot /mnt
+
+#Configurar hora zona reloj teclado etc
+ln -sf /usr/share/zoneinfo/America/Monterrey /etc/localtime
+hwclock --systohc
+echo "LANG=es_MX.UTF-8" > /etc/locale.conf
+echo "KEYMAP=la-latin1" > /etc/vconsole.conf
+echo "codallos" > /etc/hostname
+echo "127.0.0.1 localhost" > /etc/host
+
+#activar horario e idioma, abrimos con nano y desmarcamos el de mexico es_MX.UTF8 UTF8
+nano /etc/locale.gen
+
+locale-gen
+
+#crear usuario root colocar para iniciar despues el servicio 
+passwd
+
+#usuario normal
+useradd -m miguel
+passwd miguel
+
+#instalamos grub para que arranque sistema
+grub-install /dev/sda
+grub-mkconfig -o /boot/grub/grub.cfg
+
+
+#actualizar toda la configuracion
+mkinitcpio -P
+
+sudo shutdown -h now 
+
+#activar servicio de internet para que se arranque de forma automatica
+systemctl start NetworkManager.service
+systemctl enable NetworkManager.service
