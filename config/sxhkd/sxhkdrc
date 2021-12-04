@@ -1,0 +1,199 @@
+#
+# wm independent hotkeys
+#
+
+# Iniciar terminal
+super + Return
+	    xterm
+
+# Lanzador de menu
+super + space
+	rofi -show run
+
+# Hacer la recarga del archivo de configuracion: sxhkd:
+super + r
+	pkill -USR1 -x sxhkd
+# Cambiar de layout
+super + o
+	bsp-layout cycle --layouts grid,tall
+	#bsp-layout cycle --layouts  grid,tall
+super + l
+	bsp-layout set wide 
+
+#----------------------------------------------------------------------------------
+# bspwm hotkeys
+#----------------------------------------------------------------------------------
+
+# Cerrar sesion e ir a pantalla de bloque
+super + alt + Escape
+	bspc quit
+
+# cerrar ventanas y programas
+super + {_,shift + }w
+	bspc node -{c,k}
+
+# Poner en pantalla completa sin cubrir polybar "Equivalente a maximizar y minimizar"
+super + m
+	bspc desktop -l next
+
+# if the current node is automatic, send it to the last manual, otherwise pull the last leaf
+super + y
+	bspc query -N -n focused.automatic && bspc node -n last.!automatic || bspc node last.leaf -n focused
+
+# swap the current node and the biggest node/ Manda a la izquierda ventana activa incluso si esta en otro escritorio
+super + g
+	bspc node -s biggest
+
+
+
+#--------------------------------------------------------------------
+# state/flags
+#--------------------------------------------------------------------
+
+# set the window state
+super + {t,shift + t,s,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# set the node flags (super ctrl y pega ventana en todos los escritorios solo funciona con ventana modo flotante)
+super + ctrl + {x,y,z}
+	bspc node -g {locked,sticky,private}
+
+
+
+#--------------------------------------------------------------------
+# foco
+#--------------------------------------------------------------------
+
+# focus the next/previous desktop in the current monitor (cambia el foco en el escritorio actual en modo: "super + T")
+super + bracket + {left,right}
+	bspc desktop -f {prev,next}.local
+
+# focus the node for the given path jump
+super + {p,b,comma,period}
+	bspc node -f @{parent,brother,first,second}
+
+# focus the older or newer node in the focus history
+super + {o,i}
+	bspc wm -h off; \
+	bspc node {older,newer} -f; \
+	bspc wm -h on
+
+
+#--------------------------------------------------------------------
+# Movimiento de ventanas.
+#--------------------------------------------------------------------
+
+# focus the node in the given direction (Mueve las ventanas en un mismo escritorio en modo: "super + T")
+super + {_,shift + }{Left,Down,Up,Right}
+	bspc node -{f,s} {west,south,north,east}
+
+
+# focus the next/previous node in the current desktop / Cambia el foco de las ventanas en un mismo escritorio es decir pasa por todas las ventanas de un escritorio virtual (Funciona con modo pantalla maximizada "super + m")
+#super + {_,shift + }c
+
+super + ctrl + {Right,Left}
+	bspc node -f {next,prev}.local
+
+
+
+# ---------------------------------------------
+# Ventanas flotantes
+# ---------------------------------------------
+
+
+# Mover ventana flotante
+alt + shift + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+
+# Redimencionar ventana flotante
+ctrl + alt  + {Left,Down,Up,Right}
+    /home/miguel/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
+
+
+
+#--------------------------------------------------
+# Cambio de escritorio
+#---------------------------------------------------
+
+# focus or send to the given desktop Enviar ventana a otro escritorio y cambiar de escritorio.
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+# Cambia entre escritorios.
+super + alt + {Left, Right}
+  bspc desktop -f {prev, next}
+
+
+# focus the last node/desktop (cambia entre los dos ultimos escritorios utilizados)
+super + {grave,Tab}
+	bspc {node,desktop} -f last
+
+
+
+#--------------------------------------------------
+# preselect
+#---------------------------------------------------
+
+# preselect the direction
+super + ctrl + alt + {Left,Down,Up,Right}
+	bspc node -p {west,south,north,east}
+
+# preselect the ratio
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+# cancel the preselection for the focused node
+super + ctrl + space
+	bspc node -p cancel
+
+# cancel the preselection for the focused desktop
+super + ctrl + shift + space
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+
+# ---------------------------------------------
+# CUSTOM
+# ---------------------------------------------
+
+
+# Firefox
+
+ctrl + alt + f
+	firefox
+
+# dolphin
+super + e
+    thunar
+    #dolphin
+
+super + l
+     i3lock-fancy
+
+#subir volumen
+#ctrl + Up
+#    /usr/bin/subirv
+#bajar volumen
+ctrl + j
+   /home/miguel/Documentos/upVol
+
+#bajar volumen
+ctrl + f
+    /home/miguel/Documentos/DownVol
+super + p
+	rpolybar
+#----------------------------------------------------
+# move/resize
+#---------------------------------------------------
+
+# expand a window by moving one of its side outward
+# super + alt + {h,j,k,l}
+# 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+# super + alt + shift + {h,j,k,l}
+# 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+
+    
+
