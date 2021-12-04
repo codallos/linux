@@ -1,7 +1,7 @@
-Cargar la distribucion del teclado
+#Cargar la distribucion del teclado
 loadkeys la-latin1
 
-Conectarse a los repositorios
+#Conectarse a los repositorios
 pacman -Sy
 
 #Mostrar discos duros instalados
@@ -22,7 +22,6 @@ mkfs.ext4 /dev/sda6
 
 #Montar particiones (se monta la particion root provicionalmente)
 mount /dev/sda1 /mnt
-
 
 #Montar particiones (se monta la particion home)
 mkdir /mnt/home
