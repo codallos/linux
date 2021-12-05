@@ -1,3 +1,4 @@
 # linux
 
-Es mi configuracion
+
+ejecutar install.sh
