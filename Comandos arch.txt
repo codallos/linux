@@ -29,7 +29,7 @@ mkdir /mnt/home
 mount /dev/sda5 /mnt/home
 
 #instalar paquetes linux y el sistema como tal
-pacstrap /mnt base grub linux linux-firware nano networkmanager dhcpcd netctl wpa_supplicant wireless_tools iwd iw zsh
+pacstrap /mnt base grub linux linux-firware nano networkmanager dhcpcd netctl wpa_supplicant wireless_tools iwd iw zsh sudo
 
 #preparando el inicio
 genfstab /mnt >> /mnt/etc/fstab
@@ -56,6 +56,11 @@ passwd
 #usuario normal
 useradd -m miguel
 passwd miguel
+
+#configurar comando sudo
+gpasswd -a miguel wheel
+EDITOR=nano visudo #descomentar la linea: %wheel ALL=(ALL) ALL
+
 
 #instalamos grub para que arranque sistema
 grub-install /dev/sda
