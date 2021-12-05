@@ -80,6 +80,7 @@ alias rpolybar='/home/miguel/.config/polybar/launch.sh'
 alias internet='iwctl --passphrase 9CC8FC90AB34 station wlan0 connect IZZI-AB34'
 alias internetoff='sudo ifconfig wlan0 down'
 alias bateria='~/Mis_scripts/bateria.sh'
+alias ls='ls --color=auto'
 
 
 
