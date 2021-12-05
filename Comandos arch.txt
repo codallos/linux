@@ -29,7 +29,7 @@ mkdir /mnt/home
 mount /dev/sda5 /mnt/home
 
 #instalar paquetes linux y el sistema como tal
-pacstrap /mnt base grub linux linux-firware nano networkmanager dhcpcd netctl wpa_supplicant wireless_tools iwd iw zsh sudo
+pacstrap /mnt base grub linux linux-firware nano networkmanager dhcpcd netctl wpa_supplicant wireless_tools iwd iw zsh sudo xterm xorg-server xorg-xinit
 
 #preparando el inicio
 genfstab /mnt >> /mnt/etc/fstab
