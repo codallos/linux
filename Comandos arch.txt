@@ -61,7 +61,7 @@ passwd miguel
 gpasswd -a miguel wheel
 EDITOR=nano visudo #descomentar la linea: %wheel ALL=(ALL) ALL
 
-#configurar teclado para las sesiones graficas y Wm
+#configurar teclado para las sesiones graficas y Wm, setxkbmap latam: para ingles
 setxkbmap latam
 
 #instalamos grub para que arranque sistema
