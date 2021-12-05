@@ -1,6 +1,6 @@
 vim ~/.Xresources
 
-
+XTerm*colorMode: on
 
 !-------- Xterm Terminal Settings {{{
 !------------------------------------------------------
