@@ -1,0 +1,297 @@
+Ubuntu 18.04
+
+iwctl --passphrase 9CC8FC90AB34 station wlan0 connect IZZI-AB34
+
+sudo purge-old-kernels
+-----ver mascara de subred--------
+route -n
+
+-------CONECTAR MEDIANTE CONSOLA--------
+nmcli d wifi list
+nmcli con delete <SSID>
+nmcli dev wifi connect <SSID> password <password>
+nmcli c up <NombreDeRedAlmacenada>
+
+------------VER CONTRASEÑA DE REDES GUARDADAS-------
+sudo grep psk= /etc/NetworkManager/system-connections/*
+
+
+--------------FECHA FALSA EN UN ROGRAMA ---------
+
+faketime '2019-04-01 20:00:00'  "/opt/dassault-systemes/DraftSight/Linux/DraftSight"
+faketime '2021-03-02' bricscadv21
+
+
+reanudar softmaker  rm /home/lgsmarttv/SoftMaker/Settings/of21config.sys
+
+
+------Cambiar colores de Dolphin KDE---------
+~/.config/kdeglobals
+
+
+ctrl + m (barra de archivos en thunar)
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install unattended-upgrades
+
+sudo apt-cache search thunder
+
+sudo apt-get purge filezilla 
+sudo apt-get autoremove filezilla 
+
+sudo apt-get clean && sudo apt-get autoremove
+
+sudo shutdown -c
+sudo shutdown +20
+
+--------------------general-----------------------
+sudo apt-get --purge remove nombredelprogramaaleminar
+sudo apt-get autoremove
+
+------------Hacer funcionar teclas fn subir y bajar brillo y volumen--------------------
+/etc/default/grub
+quite splash acpi_osi=Linux acpi_backlight=vendor acpi_backlight=vendor
+sudo update-grub && sudo update-grub2
+queda: la linea GRUB_CMDLINE_LINUX_DEFAULT="quite splash acpi_osi=Linux acpi_backlight=vendor acpi_backlight=vendor"
+
+-----------------Hora-----------------------------
+Harreglar hora en dual boot.
+1)sudo timedatectl set-local-rtc 1
+2)sudo nano /usr/share/i18n/locales/es_MX	
+3)Ubicar las lineas
+
+am_pm “”;””
+t_fmt_ampm “”
+
+4) Y sustituirlas por estas :
+
+am_pm “<U0041><U004D>”;”<U0050><U004D>”
+t_fmt_ampm “<U0025><U0049><U003A><U0025><U004D><U003A><U0025><U0053>/
+<U0020><U0025><U0070>”
+5) Reiniciar
+----------------------------------------------------------
+
+
+------repositorios-----
+apt policy
+ls /etc/apt/sources.list.d
+add-apt-repository --remove ppa:ppa_name
+rm /etc/apt/sources.list.d/ppa_list_file
+sudo rm /etc/apt/sources.list.d/thomas-schiex-ubuntu-blender-bionic.list
+
+
+--------------Instalar deb--------------
+Descargar paquete deb
+iniciar como usuario root e ingresar a la carpeta opt
+mover archivo opt descargado a esta carpeta (se puede utilizar el comando, nota poner punto al final):
+mv /home/lgsmarttv/Descargas/bat_0.15.0_amd64.deb .
+dpkg -i bat_0.15.0_amd64.deb
+
+
+sudo dpkg -r virtualbox-5.2 (Nombre de la aplicacion despues de -r)
+sudo dpkg -P virtualbox-5.2
+
+---------------Otros comandos:-----------------------------
+set mouse(Colocar ese comando en .nanorc para habilitar los clics en nano), se puede precionar esc+ m para hacer lo mismo.
+
+Saber nombre de proceso para poder lanzarlo desde terminal.
+xprop WM_CLASS
+
+Muestra el nombre de la red a la que estas conectado
+iwgetid
+
+Establecer shell por defecto
+chsh -s $(which bash)
+
+Establecer shell por defecto
+chsh -s $(which zsh)
+
+Devuelve la localizacion del ejecutable:
+which thunar
+
+Controlar audio
+amixer set Master 10%+
+amixer set Master 10%-
+
+busca dentro de la carpeta en la que te encuentras
+find
+
+Hace independiente a un programa de la consola (primeo precionar ctrl + z en la terminal)
+disown -h %1  
+bg 1 
+
+nohup -y
+
+Instala apps:
+sudo apt-get install git
+
+Desinstala un programa y limpia dependencias,
+sudo apt-get remove --purge libreoffice*
+sudo apt-get clean && sudo apt-get autoremove
+
+Clona repositorio de git
+sudo git clone https://github.com/LionSec/katoolin.git
+
+cp->copia un archivo
+sudo cp katoolin/katoolin.py /usr/bin/katoolin
+
+sudo rm -r /home/lgsmarttv/Documentos/Directorio
+
+otorga permisos a un archivo
+sudo chmod ugo+x /usr/bin/katoolin
+
+Otorga todos los permiso a un archivos
+chmod 777 archivo 
+
+Crea un link para poder ejecutar un programa desde consola.
+sudo ln -s /opt/sublime_text/sublime_text /usr/bin
+
+Abre un programa con permisos root
+sudo katoolin
+
+Muestra el contenido de un archivo en termnal:
+cat /home/usuario/Documentos/Ejemplo
+
+Agrega un repositorio a la lista.(procedimiento general para instalar un programa desde un nuevo repositorio por primea vez)
+sudo add-apt-repository ppa:libreoffice/libreoffice-6-0
+sudo apt-get update
+sudo apt-get install libreoffice libreoffice-l10n-es
+sudo apt-get autoremove
+
+Elimina visula studio code
+sudo apt-get purge code
+
+
+------------------Agregar alias a linea de comandos:-----------------------
+Editar archivo /home/lgsmarttv/.bashrc; ejemplo:
+alias actualizar='sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -y'
+
+
+-----version de linux-----
+cat /etc/issue
+cat /etc/*release
+
+-----Kernel----
+uname -r
+-----ver si Kernel 32 o 64------
+uname -i
+uname -a
+
+
+---------------Restaurar sesion xfce---------
+rm /home/lgsmarttv/.cache/sessions/ -R
+rm /home/lgsmarttv/.config/xfce4/ -R
+
+
+-----------------Elimina bordes de xfce4 y trabajo con directorios----------------
+
+crea directorios dentro de directorios
+mkdir -p /usr/share/themes/empty/xfwm4/
+
+touch: Crea un archivo
+touch /usr/share/themes/empty/xfwm4/themerc 
+
+luego ir a temas y seleccionar empty en "Gestor de ventanas"
+
+Elimina un directorio con archivos y carpetas
+sudo rm -r /home/lgsmarttv/Documentos/Directorio
+
+
+-----------------------Nombre de teclas y atajos de bspwm-----------------------
+
+WINDOS + S FLOTAR
+WINDOWS ALT R RECARGAR ARCHIVOS PRINCIPALES
+WINDOWS F PANTALLA COMPLETA
+
+AudioRaiseVolume
+AudioLowerVolume
+
+----atajos terminal----
+ctrl u (borra todo a la izquierda del cursor)
+ctrl k (Borra todo a la derecha del cursor)
+ctrl d (borra todo a la derecha del cursor caracter por caracter)
+ctrl l (Limpia la pantalla)
+
+
+-------------Rutas de interes------------------------------------------
+
+/home/lgsmarttv/.config/bspwm/bspwmrc
+/home/lgsmarttv/.config/sxhkd/sxhkdrc
+/home/lgsmarttv/.config/compton/compton.conf
+/home/lgsmarttv/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
+/home/lgsmarttv/.config/xfce4/xfconf/xfce-perchannel-xml/
+/usr/bin
+/bin/bash
+/home/lgsmarttv/.local/share/applications/
+/opt/kingsoft/wps-office/office6/
+/usr/share/icons/
+/usr/share/icons/hicolor/
+
+
+shortcuts:
+/home/lgsmarttv/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
+
+/usr/lib/policykit-1-gnome
+/usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1
+/usr/share/applications/
+
+
+
+
+-------------------Apps-----------------------------
+Gestor de software 
+mintinstall
+
+panel de notificaciones
+Xfce4-notifyd-config
+
+Editor de texto
+xed
+
+Seleccionnar compositor
+mintdesktop
+
+Gestor de archivos
+thunar
+
+Actualizar apps
+mintupdate
+
+panel
+xfce4-panel --preferences
+
+Habilitar transparencia.
+compton
+
+Wifi creeo
+nm-applet
+
+Sublime text
+Sublime_text
+
+audio
+pavucontrol
+
+Sublime text:
+sublime_text
+
+Actualizar metasploit:
+msfupdate
+
+Bateria.
+Xfce4-power-manager-settings
+
+busca apps.1
+Xfce4-appfinder
+
+captura de pantalla
+Xfce4-screenshooter
+
+Temas:
+Xfce4-appearance-settings
+
+Xfce4-color-settings
+grub2-theme-mint
+
+grub2-theme-mint
+-------------------------------------------------------------------------

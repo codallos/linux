@@ -1,0 +1,2 @@
+bateria='cat /sys/class/power_supply/BAT1/capacity'
+(date '+%d/%^b/%Y %I:%M %p' & echo"esta '$bateria' tiene %") | figlet -f /usr/share/figlet/smmono12
