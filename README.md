@@ -1,4 +1,4 @@
 # linux
 
 
-ejecutar install.sh
+Debes de ejecutar install.sh
