@@ -6,6 +6,10 @@ sudo purge-old-kernels
 -----ver mascara de subred--------
 route -n
 
+--------Ranger--------
+mostrar archivos ocultos en ranger
+:set show_hidden true
+
 -------CONECTAR MEDIANTE CONSOLA--------
 nmcli d wifi list
 nmcli con delete <SSID>
