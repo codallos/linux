@@ -91,6 +91,7 @@ alias mirepo='rm ~/linux -R -f & git clone https://github.com/codallos/linux.git
 autoload -U compinit
 compinit
 bindkey "^?" backward-delete-char
+bindkey '~' delete-char
 bindkey '^[OH' beginning-of-line
 bindkey '^[OF' end-of-line
 bindkey '^[[5~' up-line-or-history
