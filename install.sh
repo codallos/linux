@@ -1,3 +1,2 @@
-cp ./linux/.zshrc ~
-cp ./linux/.Xresources ~
-cp ./linux/config/* ~/.config -R
+cp ./.zshrc ./.Xresources ~
+cp ./config/* ~/.config -R
