@@ -103,9 +103,6 @@ set mouse(Colocar ese comando en .nanorc para habilitar los clics en nano), se p
 Saber nombre de proceso para poder lanzarlo desde terminal.
 xprop WM_CLASS
 
-Muestra el nombre de la red a la que estas conectado
-iwgetid
-
 Establecer shell por defecto
 chsh -s $(which bash)
 
