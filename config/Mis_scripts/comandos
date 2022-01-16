@@ -19,6 +19,8 @@ nmcli c up <NombreDeRedAlmacenada>
 ------------VER CONTRASEÑA DE REDES GUARDADAS-------
 sudo grep psk= /etc/NetworkManager/system-connections/*
 
+------------MUESTRA LA RED A LA QUE ESTAS CONECTADO-------
+iwgetid
 
 --------------FECHA FALSA EN UN ROGRAMA ---------
 
