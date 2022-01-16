@@ -64,7 +64,7 @@ EDITOR=nano visudo #descomentar la linea: %wheel ALL=(ALL) ALL
 #configurar teclado para las sesiones graficas y Wm, setxkbmap latam: para ingles
 setxkbmap latam
 
-#instalamos grub para que arranque sistema
+#instalamos grub para que arranque sistema debe de contener la linea GRUB_DISABLE_OS_PROBER=false si es dual boot
 grub-install /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 
