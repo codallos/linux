@@ -217,7 +217,7 @@ ctrl l (Limpia la pantalla)
 
 
 -------------Rutas de interes------------------------------------------
-
+/sys/class/backlight/intel_backlight/brightness #Ruta donde se encuentra la configuracion del brillo
 /home/lgsmarttv/.config/bspwm/bspwmrc
 /home/lgsmarttv/.config/sxhkd/sxhkdrc
 /home/lgsmarttv/.config/compton/compton.conf
@@ -283,6 +283,9 @@ msfupdate
 
 Bateria.
 Xfce4-power-manager-settings
+
+#Hacer funcionar el brillo
+xfce4-power-manager
 
 busca apps.1
 Xfce4-appfinder
