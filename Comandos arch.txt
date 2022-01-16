@@ -1,6 +1,9 @@
 #Cargar la distribucion del teclado
 loadkeys la-latin1
 
+#Conectarse a internet por wifi
+iwctl --passphrase 9CC8FC90AB34 station wlan0 connect IZZI-AB34
+
 #Conectarse a los repositorios
 pacman -Sy
 
