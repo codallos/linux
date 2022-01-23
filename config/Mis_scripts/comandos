@@ -1,6 +1,7 @@
 Ubuntu 18.04
 
 iwctl --passphrase 9CC8FC90AB34 station wlan0 connect IZZI-AB34
+#modem-manager-gui 
 
 sudo purge-old-kernels
 -----ver mascara de subred--------
