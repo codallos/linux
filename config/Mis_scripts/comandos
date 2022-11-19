@@ -23,6 +23,12 @@ sudo grep psk= /etc/NetworkManager/system-connections/*
 ------------MUESTRA LA RED A LA QUE ESTAS CONECTADO-------
 iwgetid
 
+-----MUESTRA LA INFORMACION DE RED IPV4ADDRESS[1 (SIMILAR A IPCONFIG DE WINDOWS)
+nmcli -p device show
+
+------------MUESTRA NOMBRE DE HOST (NO ES LO MISMO QUE LOCAL HOST)------------------
+host name -i
+
 --------------FECHA FALSA EN UN ROGRAMA ---------
 
 faketime '2019-04-01 20:00:00'  "/opt/dassault-systemes/DraftSight/Linux/DraftSight"
