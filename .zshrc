@@ -1,7 +1,3 @@
-#######################################################
-####### Anarchy ZSH configuration file    #######
-#######################################################
-
 ### Set/unset ZSH options
 #########################
 # setopt NOHUP
@@ -82,6 +78,8 @@ alias internetoff='sudo ifconfig wlan0 down'
 alias bateria='~/.config/Mis_scripts/bateria.sh'
 alias ls='ls --color=auto'
 alias mirepo='rm ~/linux -R -f & git clone https://github.com/codallos/linux.git'
+alias ipconfig='nmcli -p device show'
+
 
 
 
@@ -181,3 +179,5 @@ zstyle '*' single-ignored show
 ### Source plugins
 ##################
 #source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
