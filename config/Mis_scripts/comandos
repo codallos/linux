@@ -67,6 +67,11 @@ quite splash acpi_osi=Linux acpi_backlight=vendor acpi_backlight=vendor
 sudo update-grub && sudo update-grub2
 queda: la linea GRUB_CMDLINE_LINUX_DEFAULT="quite splash acpi_osi=Linux acpi_backlight=vendor acpi_backlight=vendor"
 
+#Si estas en otra distribucion deberas de usar lo siguiente (en caso de ue no sirva sudo update-grub && sudo update-grub2)
+
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+
 -----------------Hora-----------------------------
 Harreglar hora en dual boot.
 1)sudo timedatectl set-local-rtc 1
