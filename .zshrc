@@ -1,5 +1,4 @@
-### Set/unset ZSH options
-#########################
+
 # setopt NOHUP
 # setopt NOTIFY
 # setopt NO_FLOW_CONTROL
