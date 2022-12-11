@@ -1,5 +1,22 @@
 Ubuntu 18.04
 
+#Hacer funcionar el touch pad.
+1.-Crear un archivo llamado "40-libinput.conf" en la siguiente ruta: "/etc/X11/xorg.conf.d/"
+2.-El documento creado debe de contener lo siguiente:
+
+Section "InputClass"
+        Identifier "libinput touchpad catchall"
+        MatchIsTouchpad "on"
+        MatchDevicePath "/dev/input/event*"
+        Driver "libinput"
+        Option "Tapping" "on"
+        Option "VerticalScrolling" "True"
+        Option "NaturalScrolling" "True"
+        Option "EdgeScrolling" "True"
+EndSection
+
+ver archivo en esta carpeta
+
 iwctl --passphrase 9CC8FC90AB34 station wlan0 connect IZZI-AB34
 #modem-manager-gui 
 
