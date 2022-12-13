@@ -246,6 +246,7 @@ ctrl l (Limpia la pantalla)
 
 
 -------------Rutas de interes------------------------------------------
+/usr/libexec/ #Servicios que se ejecutan al iniciar sesion
 /sys/class/backlight/intel_backlight/brightness #Ruta donde se encuentra la configuracion del brillo
 /home/lgsmarttv/.config/bspwm/bspwmrc
 /home/lgsmarttv/.config/sxhkd/sxhkdrc
