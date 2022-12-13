@@ -259,6 +259,6 @@ function limpiahistorial() {
 
 limpiahistorial
 setopt HIST_SAVE_NO_DUPS
-setopt
+# setopt
 # Use emacs keybindings even if our EDITOR is set to vi
 # bindkey -e
