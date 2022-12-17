@@ -4,7 +4,7 @@
 
 # Iniciar terminal
 super + Return
-	    xterm
+	    tilix
 
 # Lanzador de menu
 super + space
@@ -13,12 +13,12 @@ super + space
 # Hacer la recarga del archivo de configuracion: sxhkd:
 super + r
 	pkill -USR1 -x sxhkd
-# Cambiar de layout
-super + o
-	bsp-layout cycle --layouts grid,tall
+# Cambiar de layout se requiere instalar bsp-layout
+#super + o
+	#bsp-layout cycle --layouts grid,tall
 	#bsp-layout cycle --layouts  grid,tall
-super + l
-	bsp-layout set wide 
+#super + l
+#	bspc-layout set wide 
 
 #----------------------------------------------------------------------------------
 # bspwm hotkeys
@@ -107,11 +107,11 @@ alt + shift + {Left,Down,Up,Right}
 
 
 # Redimencionar ventana flotante
-ctrl + alt  + {Left,Down,Up,Right}
-    /home/miguel/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
+ctrl + alt + {Left,Down,Up,Right}
+    ~/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
 
 
-
+ 
 #--------------------------------------------------
 # Cambio de escritorio
 #---------------------------------------------------
@@ -160,11 +160,12 @@ super + ctrl + shift + space
 # Firefox
 
 ctrl + alt + f
-	firefox
+	chromium-browser
 
 # dolphin
 super + e
-    thunar
+    nemo
+    #thunar
     #dolphin
 
 super + l
@@ -194,6 +195,8 @@ super + p
 # super + alt + shift + {h,j,k,l}
 # 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
+#alt + shift + {Left,Down,Up,Right}
+#	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
 
     
-
