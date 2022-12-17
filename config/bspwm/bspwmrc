@@ -18,7 +18,7 @@ feh --bg-fill /home/miguel/.config/openbox/gatonegro.jpg &
 
 
 
-bspc monitor -d I II III IV
+bspc monitor -d 1 2 3 4
 
 bspc config border_width         1
 bspc config window_gap           0
