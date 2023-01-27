@@ -1,0 +1,165 @@
+#----------------------------------------------------------------------------------
+# bspwm atajos basicos
+#----------------------------------------------------------------------------------
+# Iniciar terminal
+super + Return
+	    tilix
+
+# super + w Cerrar ventana en la que te encuentras
+#	super + W (super + shift + w) Cerrar todas las ventanas de todos los escritorios, Nota: no vale colocar el teclado en mayusculas y colocar super + W 
+super + {w, W}
+	bspc node -{c,k}
+
+# Lanzador de menu
+super + space
+	rofi -show run
+
+# Hacer la recarga del archivo de configuracion: sxhkd:
+super + r
+	pkill -USR1 -x sxhkd
+
+# Cerrar sesion e ir a pantalla de bloqueo
+super + alt + Escape
+	bspc quit
+
+#---------------------------------------------------------
+# Configuracion bsp layout se requiere instalar bsp-layout 
+#---------------------------------------------------------
+#
+# tall -> rtall igual con las columnas al otro lado
+# _______________
+# |        |____|
+# |        |____|
+# |        |____|
+# |________|____|
+# 
+#
+# wide -> rwide igual pero con la columna mas pequeña arriba
+# _______________
+# |             |
+# |             |
+# |_____________|
+# |____|____|___|
+#
+# grid
+# _____________
+# |   |   |   |
+# |___|___|___|
+# |   |   |   |
+# |___|___|___|
+#
+# rgrid
+# _____________
+# |_____|_____|
+# |_____|_____|
+# |_____|_____|
+#
+# tiled (defaul bspwm)
+# _______________
+# |        |    |
+# |        |____|
+# |        |  | |
+# |________|__|_|
+#
+#
+#
+#
+#
+#
+
+# Cambiar de layout se requiere instalar bsp-layout
+super + o
+	bsp-layout next --layouts wide,tall
+
+# Cambiar a layout grid
+super + p
+	bsp-layout once grid 
+
+#--------------------------------------------------------------------
+# Cambiar el estado de las ventanas
+#--------------------------------------------------------------------
+# Super + t -> tiled: Modo por defecto
+# Super + Shift + t -> Hibrido entre tiled y flotante
+# Super + s -> Ventana en modo flotante
+# Super + f -> Ventana en pantalla completa (ocupa el espacio de la barra de tareas)
+super + {t,shift + t,s,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# Poner en pantalla completa sin cubrir polybar (barra de tareas) "Equivalente a maximizar y minimizar"
+super + m
+	bspc desktop -l next
+
+#--------------------------------------------------------------------
+# Atajos para ventanas
+#--------------------------------------------------------------------
+# super + flechas -> Cambia el foco entre ventanas.
+# super + shift + flechas -> Cambia de lugar entre ventanas de un mismo escritorio
+super + {_,shift + }{Left,Down,Up,Right}
+	bspc node -{f,s} {west,south,north,east}
+
+#Recorre todas las ventanas de un escritorio virtual (Funciona con modo pantalla maximizada "super + m") y cuando hay ventanas flotantes
+super + ctrl + {Right,Left}
+	bspc node -f {next,prev}.local
+
+#Alterna entre las dos ultimas ventanas visitadas
+alt + Tab
+	bspc node -f last.local
+
+# Alterna entre el nodo actual (Ventana actual) y el nodo mas grande (Ventana mas grande), no importa si esta en otro escritorio
+super + g
+	bspc node -s biggest
+
+# Redimencionar ventana 
+ctrl + alt + {Left,Down,Up,Right}
+    ~/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
+
+# Mover ventana flotante
+alt + shift + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# Super + shift + numero -> Enviar ventana al escritorio con el numero que selecciones.
+
+#--------------------------------------------------
+# Atajos para escritorio
+#---------------------------------------------------
+# Super + numero -> Moverte al escritorio con ese numero
+# Super + shift + numero -> Enviar ventana al escritorio con el numero que selecciones.
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+# Cambia entre escritorios.
+super + alt + {Left, Right}
+  bspc desktop -f {prev, next}
+
+#Alterna entre los dos ultimos escritorios visitados
+super + Tab
+	bspc desktop -f last
+
+#--------------------------------------------------
+# Preseleccion
+#---------------------------------------------------
+# Direccion de la Preseleccion
+# Super + control + alt + flechas -> Marca donde queremos lanzar la siguiente ventana (solo funciona con el layout por defecti tiled)
+super + ctrl + alt + {Left,Down,Up,Right}
+	bspc node -p {west,south,north,east}
+
+# Tamaño de la preseleccion -> Cambia que tan grande va a ser la ventana lanzada
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+# Cancela la preseleccion
+super + ctrl + space
+	bspc node -p cancel
+
+# ---------------------------------------------
+# Perzonalizado
+# ---------------------------------------------
+# Navegador
+ctrl + alt + f
+	chromium-browser
+
+# Explorador de archivos
+super + e
+    nemo
+# Pantalla de bloqueo / Display Manager / Manejador de sesion
+
