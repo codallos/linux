@@ -12,6 +12,9 @@ super + {w, W}
 
 # Lanzador de menu
 super + space
+	rofi -show drun
+
+super + shift + space
 	rofi -show run
 
 # Hacer la recarga del archivo de configuracion: sxhkd:
