@@ -1,0 +1,27 @@
+user: rgb_(171,178,191)
+group: rgb_(171,178,191)
+permission:
+  read: rgb_(171,178,191)
+  write: rgb_(171,178,191)
+  exec: rgb_(171,178,191)
+  exec-sticky: rgb_(171,178,191)
+  no-access: rgb_(171,178,191)
+  octal: rgb_(171,178,191)
+  acl: rgb_(171,178,191)
+  context: rgb_(171,178,191)
+date:
+  hour-old: rgb_(171,178,191)
+  day-old: rgb_(171,178,191)
+  older: rgb_(171,178,191)
+size:
+  none: rgb_(171,178,191)
+  small: rgb_(171,178,191)
+  medium: rgb_(171,178,191)
+  large: rgb_(171,178,191)
+inode:
+  valid: rgb_(171,178,191)
+  invalid: rgb_(171,178,191)
+links:
+  valid: rgb_(171,178,191)
+  invalid: rgb_(171,178,191)
+tree-edge: rgb_(171,178,191)
