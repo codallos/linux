@@ -1,0 +1,17 @@
+require('globalConfig')
+require('packerInit')
+require('configPlug.treesitterConfig')
+require('configPlug.impatientConfig')
+-- require('configPlug.colorizerConfig')
+require('configPlug.nvimTreeConfig')
+-- require('configPlug.masonConfig')
+--require('configPlug.tsserverConfig')
+require('configPlug.cocConfig')
+require('configPlug.lualineConfig')
+require('configPlug.bufferlineConfig')
+--require('configPlug.blanklineConfig')
+require('configPlug.telescopeConfig')
+--require('configPlug.lspzeroConfig')
+require('configPlug.oneDarkLuaConfig')
+--require'lspconfig'.pyright.setup{}
+-- require('lspconfig')['html'].setup{}
